@@ -1,6 +1,4 @@
-<div id="one"></div>
-  <style>
-    #one { display: none; }
+<style>
     a { 
       display: block;
       left: 0; right: 0; margin: auto;
@@ -22,6 +20,8 @@
   function fnc() {
     const sel = window.getSelection();
     const blck = document.getElementById('one');
+    document.body.overflow = "hidden";
+    blck.style.marginTop = "100vh";
     blck.innerHTML = "averVal=function(){var data=[],data1=[],sum=0,tsts=0;for(let i=2;i<2000;i++){data1.push(document.querySelector(`#region-main>div>div>div>table>tbody>tr:nth-child(${i})>td.level2.leveleven.item.b1b.itemcenter.column-percentage`));};for(let i=0;i<data1.length;i++){if(data1[i]!=null){tsts++;let elem=data1[i].textContent;if(elem.lastIndexOf('%')!=-1){elem=elem.slice(0,elem.lastIndexOf('%'))};if(elem.lastIndexOf(',')!=-1){elem=elem.slice(0,elem.lastIndexOf(','))+'.'+elem.slice(elem.lastIndexOf(',')+1,elem.length);};if(elem!='-'){data.push(+elem);sum+=+elem;};};};console.clear();console.log(`\n\n\n\n\n\nYou have ${data.length}/${tsts} passed tests. The average value is\n\n`);return sum/data.length;};averVal();";
     sel.removeAllRanges();
     sel.selectAllChildren(blck);
@@ -32,3 +32,4 @@
 </script>
 <a href="http://gusedu.com.ru/moodle/grade/report/user/index.php?id=3" onmousedown="fnc()">Gusedu Link</a>
 <br><sub>           script will be copied automatically</sub>
+<div id="one"></div>
